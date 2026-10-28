@@ -1,8 +1,8 @@
 from django.urls import path
-from . import views
-
-app_name = "auth"
+from .views import login_view, refresh_token_view, profile_view
 
 urlpatterns = [
-     path("login/", views.login_view, name="login"),
+    path("login/", login_view, name="admin-login"),
+    path("refresh/", refresh_token_view, name="admin-refresh-token"),
+    path("profile/", profile_view, name="admin-profile"),
 ]

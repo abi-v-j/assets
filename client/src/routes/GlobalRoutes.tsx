@@ -1,14 +1,32 @@
-import { Route, Routes } from "react-router"
-import LandingRoutes from "./LandingRoutes"
-import AuthRoutes from "./AuthRoutes"
+import React from 'react';
+import { Route, Routes, Navigate } from 'react-router';
+import { AuthProvider } from '../context/AuthContext';
+import { ProtectedRoute } from '../auth/ProtectedRoute';
+import Login from '../auth/pages/Login';
+import AdminRoutes from './AdminRoutes';
 
 const GlobalRoutes: React.FC = () => {
   return (
-    <Routes>
-        <Route path="" element={<LandingRoutes />} />
-        <Route path="auth/*" element={<AuthRoutes/>}/>
-    </Routes>
-  )
-}
+    <AuthProvider>
+      <Routes>
+        <Route path="/auth/login" element={<Login />} />
 
-export default GlobalRoutes
+        {/* Protected Admin Routes (No Outlet) */}
+        <Route
+          path="/admin/*"
+          element={
+            <ProtectedRoute>
+              <AdminRoutes />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Fallback routes */}
+        <Route path="/" element={<Navigate to="/admin/dashboard" replace />} />
+        <Route path="*" element={<Navigate to="/admin/dashboard" replace />} />
+      </Routes>
+    </AuthProvider>
+  );
+};
+
+export default GlobalRoutes;
