@@ -1,11 +1,12 @@
-import React from 'react';
-import { Routes, Route, Navigate } from 'react-router';
-import { AdminLayout } from '../admin/AdminLayout';
-import DashboardPage from '../admin/pages/DashboardPage';
-import ItemsPage from '../admin/pages/ItemsPage';
-import CustomersPage from '../admin/pages/CustomersPage';
-import SalesOrdersPage from '../admin/pages/SalesOrdersPage';
-import InvoicesPage from '../admin/pages/InvoicesPage';
+import React from "react";
+import { Routes, Route, Navigate } from "react-router";
+import { AdminLayout } from "../admin/AdminLayout";
+import DashboardPage from "../admin/pages/DashboardPage";
+import ItemsPage from "../admin/pages/ItemsPage";
+import CustomersPage from "../admin/pages/CustomersPage";
+import SalesOrdersPage from "../admin/pages/SalesOrdersPage";
+import InvoicesPage from "../admin/pages/InvoicesPage";
+import Demo from "../admin/pages/Demo";
 
 const AdminRoutes: React.FC = () => {
   return (
@@ -55,6 +56,14 @@ const AdminRoutes: React.FC = () => {
         element={
           <AdminLayout>
             <InvoicesPage />
+          </AdminLayout>
+        }
+      />
+      <Route
+        path="demo"
+        element={
+          <AdminLayout>
+            <Demo />
           </AdminLayout>
         }
       />

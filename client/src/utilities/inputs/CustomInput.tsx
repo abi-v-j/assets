@@ -14,6 +14,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   max,
   step,
   maxLength,
+  className = '',
   onChange,
 }) => {
   return (
@@ -31,6 +32,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
       step={step}
       maxLength={maxLength}
       onChange={onChange}
+      className={`w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-800 placeholder:text-slate-400 shadow-xs transition-colors duration-150 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400 ${className}`}
     />
   );
 };

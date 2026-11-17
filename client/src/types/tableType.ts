@@ -4,6 +4,8 @@ export interface ColumnDefinition<T = any> {
   header: React.ReactNode;
   key?: keyof T | string;
   render?: (row: T, index: number) => React.ReactNode;
+  className?: string;
+  headerClassName?: string;
 }
 
 export interface CustomTableProps<T = any> {
@@ -15,4 +17,6 @@ export interface CustomTableProps<T = any> {
   border?: number;
   cellPadding?: number;
   cellSpacing?: number;
+  className?: string;
+  containerClassName?: string;
 }

@@ -1,9 +1,11 @@
 import { api } from './axiosClient';
-import type { ApiResponse, AuthResponseData, AdminUser } from '../types';
+import type { ApiResponse, AuthResponseData, AdminUser, credentials } from '../types';
 
-export const loginAdmin = async (credentials: { email: string; password: string }): Promise<AuthResponseData> => {
+export const loginAdmin = async (credentials: credentials): Promise<AuthResponseData> => {
   const res = await api.post<ApiResponse<AuthResponseData>>('/auth/login/', credentials);
   const data = res.data.data;
+  console.log(data);
+  
   localStorage.setItem('access_token', data.tokens.access_token);
   localStorage.setItem('refresh_token', data.tokens.refresh_token);
   localStorage.setItem('user_info', JSON.stringify(data.user));

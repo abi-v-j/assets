@@ -20,14 +20,19 @@ export interface CustomInputProps {
   max?: string | number;
   step?: string | number;
   maxLength?: number;
+  className?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface CustomButtonProps {
-  name: string;
+  name: string | React.ReactNode;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
+  variant?: 'primary' | 'secondary' | 'danger' | 'success' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  className?: string;
+  icon?: React.ReactNode;
 }
 
 export interface SelectOption {
@@ -42,6 +47,7 @@ export interface CustomSelectProps {
   required?: boolean;
   disabled?: boolean;
   options: SelectOption[];
+  className?: string;
   onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
@@ -52,7 +58,9 @@ export interface CustomTextareaProps {
   cols?: number;
   placeholder?: string;
   value?: string;
+  defaultValue?: string;
   required?: boolean;
   disabled?: boolean;
+  className?: string;
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
